@@ -11,7 +11,7 @@
 @interface TweiberDetailViewController : UIViewController
 
 //Detail View
-@property (strong, nonatomic) IBOutlet UIView *tweiberDetailView;
+@property (strong, nonatomic) IBOutlet UIScrollView *tweiberDetailView;
 
 //UI Elements
 @property (strong, nonatomic) IBOutlet UITextView *tweetTextLabel;

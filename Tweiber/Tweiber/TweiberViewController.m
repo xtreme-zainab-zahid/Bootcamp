@@ -76,6 +76,7 @@
         [self setCurrentHashTag: newHashTag];
         [self setQuery: nil];
         [self setTweetList: nil];
+        displayCount = MAX_TWEETS;
         [self setHashedTitle];
         [self asyncFetch];
     }
@@ -251,4 +252,9 @@
     }
 }
 
+- (void)orientationChanged:(NSNotification *)notification {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[self tweetTableView] reloadSections: [NSIndexSet indexSetWithIndex:0] withRowAnimation: UITableViewRowAnimationBottom];
+    });
+}
 @end
