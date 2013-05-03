@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OT9-0u-aad">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Tweiber View Controller - Tweets!-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="TweiberViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-Ob-s7B">
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tweetCell" id="uLo-xa-dFM" customClass="TweiberCell">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nu8-YK-ShH">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="253" id="viE-ym-IWW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Nu8-YK-ShH" firstAttribute="top" secondItem="uLo-xa-dFM" secondAttribute="top" constant="12" id="04u-94-qVt"/>
+                                            <constraint firstItem="Nu8-YK-ShH" firstAttribute="leading" secondItem="uLo-xa-dFM" secondAttribute="leading" constant="30" id="vQ6-a0-Y42"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="tweetLabel" destination="Nu8-YK-ShH" id="uUQ-9L-8Ug"/>
+                                            <segue destination="dU9-Mq-Jo1" kind="push" identifier="detailSegue" id="FKm-7f-R8S"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="eud-dB-M92"/>
+                                    <outlet property="delegate" destination="2" id="SOE-2R-pkt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="wIN-Ob-s7B" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="7lN-cb-MgP"/>
+                            <constraint firstItem="wIN-Ob-s7B" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="7tZ-HU-ozv"/>
+                            <constraint firstItem="wIN-Ob-s7B" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="XKR-XJ-FA7"/>
+                            <constraint firstItem="wIN-Ob-s7B" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="hQQ-ir-hbv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tweets!" id="yMM-lj-7Kb">
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="#HashTag" id="ePd-yb-haz"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="changeHashButton" destination="ePd-yb-haz" id="fqW-YT-Dee"/>
+                        <outlet property="tweetTableView" destination="wIN-Ob-s7B" id="q5x-DG-w8s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="987" y="146"/>
+        </scene>
+        <!--Tweiber Detail View Controller - Tweet Detail-->
+        <scene sceneID="dnm-S9-ymp">
+            <objects>
+                <viewController id="dU9-Mq-Jo1" customClass="TweiberDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WGt-QH-yJU">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvG-x6-9pM">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="gcd-nY-2EO"/>
+                                    <constraint firstAttribute="height" constant="112" id="vjb-t3-nYh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Px-9x-C1o">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="191-OP-D0h"/>
+                                    <constraint firstAttribute="width" constant="342" id="MlS-E3-YMz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="cretime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhv-Ss-lwT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="jQ0-yw-7h8"/>
+                                    <constraint firstAttribute="width" constant="304" id="mid-Zu-hdN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GuQ-Qv-s0R">
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="a9v-No-PpN"/>
+                                    <constraint firstAttribute="height" constant="178" id="bW3-mL-LZe"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Px-9x-C1o" firstAttribute="centerX" secondItem="mvG-x6-9pM" secondAttribute="centerX" type="default" id="67k-Tv-MtR"/>
+                            <constraint firstItem="9Px-9x-C1o" firstAttribute="top" secondItem="WGt-QH-yJU" secondAttribute="top" constant="18" id="Qgv-KU-2IG"/>
+                            <constraint firstItem="mvG-x6-9pM" firstAttribute="centerX" secondItem="lhv-Ss-lwT" secondAttribute="centerX" type="default" id="aXP-y1-v1f"/>
+                            <constraint firstItem="GuQ-Qv-s0R" firstAttribute="top" secondItem="WGt-QH-yJU" secondAttribute="top" constant="206" id="heu-oL-RMQ"/>
+                            <constraint firstItem="lhv-Ss-lwT" firstAttribute="top" secondItem="WGt-QH-yJU" secondAttribute="top" constant="162" id="k5P-9V-p8s"/>
+                            <constraint firstItem="GuQ-Qv-s0R" firstAttribute="centerX" secondItem="lhv-Ss-lwT" secondAttribute="centerX" type="default" id="mjp-Qe-mnR"/>
+                            <constraint firstItem="mvG-x6-9pM" firstAttribute="centerX" secondItem="WGt-QH-yJU" secondAttribute="centerX" type="default" id="po0-Ed-uFE"/>
+                            <constraint firstItem="mvG-x6-9pM" firstAttribute="top" secondItem="9Px-9x-C1o" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zNq-J8-T9J"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tweet Detail" id="iku-ie-cZY"/>
+                    <connections>
+                        <outlet property="creationTimeLabel" destination="lhv-Ss-lwT" id="jOb-Zs-EBi"/>
+                        <outlet property="profilePicture" destination="mvG-x6-9pM" id="4W6-eT-6DN"/>
+                        <outlet property="tweetTextLabel" destination="GuQ-Qv-s0R" id="VM3-sC-HpW"/>
+                        <outlet property="tweiberDetailView" destination="GuQ-Qv-s0R" id="p6p-cZ-5JD"/>
+                        <outlet property="userNameLabel" destination="9Px-9x-C1o" id="qLR-uA-NE1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zaO-yb-LIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1452" y="146"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BID-u5-5x3">
+            <objects>
+                <navigationController id="OT9-0u-aad" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KdC-v5-UsT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="s30-CT-qrJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ne0-Ao-mWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="511" y="146"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
